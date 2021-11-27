@@ -61,6 +61,27 @@
                     <span>Report Hasil</span></a>
             </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Stting
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?= site_url('admin/Master') ?>">
+                    <i class="fas fa-fw fa-calculator"></i>
+                    <span>Master Kategori</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= site_url('admin/Master/alternatif') ?>">
+                    <i class="fas fa-fw fa-calculator"></i>
+                    <span>Master Alternatif</span></a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
