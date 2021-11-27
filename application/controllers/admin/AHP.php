@@ -20,11 +20,12 @@ class AHP extends CI_Controller
         $data = [
             'name'  => $this->session->userdata('nama'),
             'bobot' => $this->m_data->get_data('tbl_master_bobot'),
+            'kriteria' => $this->m_data->get_data('tbl_master_kriteria'),
             'title' => 'Perhitungan AHP',
             'conten' => 'conten/ahp',
-            'footer_js' => array(
-                'assets/js/AHP.js'
-            )
+            // 'footer_js' => array(
+            //     'assets/js/AHP.js'
+            // )
         ];
         $this->load->view('template/conten', $data);
     }
