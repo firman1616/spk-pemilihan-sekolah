@@ -41,11 +41,11 @@
     </div>
 </div>
 <?php
-foreach ($kriteria->result() as $row) {
-    $kode_arr[] = $row->kode_kriteria;
-    $nama_arr[] = $row->nama_kriteria;
-}
-$int_matrix = count($nama_arr);
+// foreach ($kriteria->result() as $row) {
+//     $kode_arr[] = $row->kode_kriteria;
+//     $nama_arr[] = $row->nama_kriteria;
+// }
+// $int_matrix = count($nama_arr);
 
 ?>
 
@@ -65,11 +65,14 @@ $int_matrix = count($nama_arr);
 
 <!-- Page level custom scripts -->
 <script src="<?= site_url('') ?>assets/template/js/demo/datatables-demo.js"></script>
+
 <script>
+    var BASE_URL = "<?php echo base_url(); ?>";
+</script>
+
+<!-- <script>
     $(document).ready(function() {
         var int_matrix = <?php echo $int_matrix; ?>;
-
-        print_r(int_matrix);
         $('select[name^=index]').change(function() {
             var jumlah_x = 0;
             var jumlah_y = 0;
@@ -82,8 +85,8 @@ $int_matrix = count($nama_arr);
 
             if (value == 0) {
                 $('input[name="index[' + index_y + '][' + index_x + ']"]').val(0);
-            } else {
-                $('input[name="index[' + index_y + '][' + index_x + ']"]').val(1 / value);
+            } else { 
+                $('input[name="index[' + index_y + '][' + index_x + ']"]').val((1 / value).toFixed(2));
             }
 
             for (let i = 0; i < int_matrix; i++) {
@@ -113,11 +116,7 @@ $int_matrix = count($nama_arr);
 
         });
     });
-</script>
-
-<script>
-    var BASE_URL = "<?php echo base_url(); ?>";
-</script>
+</script> -->
 
 <!-- costume js -->
 <?php
