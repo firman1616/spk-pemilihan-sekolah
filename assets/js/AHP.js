@@ -81,20 +81,20 @@ $(document).ready(function ($) {
     });
  
      // Rank
-     var rank1 = $('#rank1').val();
-     var rank2 = $('#rank2').val();
-     var rank3 = $('#rank3').val();
-     var rank4 = $('#rank4').val();
-     var rank5 = $('#rank5').val();
-     if (rank1) {
+     var rata1 = $('#rata1').val();
+     var rata2 = $('#rata2').val();
+     var rata3 = $('#rata3').val();
+     var rata4 = $('#rata4').val();
+     var rata5 = $('#rata5').val();
+     if (rata1) {
          $.ajax({
-             url: base_url + "admin/perhitungan/simpan_rank",
+             url: BASE_URL + "admin/AHP/simpan_bobot",
              method: "POST",
-             data: { rank1: rank1, rank2: rank2, rank3: rank3, rank4: rank4, rank5: rank5 },
+             data: { rata1: rata1, rata2: rata2, rata3: rata3, rata4: rata4, rata5: rata5 },
              async: false,
              dataType: 'json',
              success: function (data) {
-                 alert('Data Perangkingan Berhasil Di simpan');
+                 alert('Data Bobot Kriteria Beerhasil Disimpan');
              }
          });
      }
