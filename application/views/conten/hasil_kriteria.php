@@ -83,6 +83,7 @@ $R4 = ($E41 + $E42 + $E43 + $E44 + $E45) / 5;
 $R5 = ($E51 + $E52 + $E53 + $E54 + $E55) / 5;
 ?>
 
+<input type="hidden" id="user" value="<?= $user_id ?>">
 
 <input type="hidden" id="rata1" value="<?= $R1 ?>">
 <input type="hidden" id="rata2" value="<?= $R2 ?>">
@@ -90,6 +91,40 @@ $R5 = ($E51 + $E52 + $E53 + $E54 + $E55) / 5;
 <input type="hidden" id="rata4" value="<?= $R4 ?>">
 <input type="hidden" id="rata5" value="<?= $R5 ?>">
 
+<!-- C1 -->
+<input type="hidden" id="c11" value="<?= $C11 ?>">
+<input type="hidden" id="c12" value="<?= $C12 ?>">
+<input type="hidden" id="c13" value="<?= $C13 ?>">
+<input type="hidden" id="c14" value="<?= $C14 ?>">
+<input type="hidden" id="c15" value="<?= $C15 ?>">
+
+<!-- C2 -->
+<input type="hidden" id="c21" value="<?= $C21 ?>">
+<input type="hidden" id="c22" value="<?= $C22 ?>">
+<input type="hidden" id="c23" value="<?= $C23 ?>">
+<input type="hidden" id="c24" value="<?= $C24 ?>">
+<input type="hidden" id="c25" value="<?= $C25 ?>">
+
+<!-- C3 -->
+<input type="hidden" id="c31" value="<?= $C31 ?>">
+<input type="hidden" id="c32" value="<?= $C32 ?>">
+<input type="hidden" id="c33" value="<?= $C33 ?>">
+<input type="hidden" id="c34" value="<?= $C34 ?>">
+<input type="hidden" id="c35" value="<?= $C35 ?>">
+
+<!-- C4 -->
+<input type="hidden" id="c41" value="<?= $C41 ?>">
+<input type="hidden" id="c42" value="<?= $C42 ?>">
+<input type="hidden" id="c43" value="<?= $C43 ?>">
+<input type="hidden" id="c44" value="<?= $C44 ?>">
+<input type="hidden" id="c45" value="<?= $C45 ?>">
+
+<!-- C5 -->
+<input type="hidden" id="c51" value="<?= $C51 ?>">
+<input type="hidden" id="c52" value="<?= $C52 ?>">
+<input type="hidden" id="c53" value="<?= $C53 ?>">
+<input type="hidden" id="c54" value="<?= $C54 ?>">
+<input type="hidden" id="c55" value="<?= $C55 ?>">
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
