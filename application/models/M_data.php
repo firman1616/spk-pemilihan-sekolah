@@ -86,4 +86,9 @@ class M_data extends CI_Model
     $kode_jadi = $kode_max;
     return $kode_jadi;
   }
+
+  public function bobot_kriteria($user)
+  {
+    return $this->db->query("SELECT * FROM tbl_bobot_kriteria WHERE fk_user = $user ORDER BY id_bobot__kriteria DESC LIMIT 1 ");
+  }
 }

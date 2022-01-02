@@ -20,6 +20,7 @@
                                      <th>No</th>
                                      <th>Kode Kriteria</th>
                                      <th>Nama Kriteria</th>
+                                     <th>Atribut</th>
                                      <th>Action</th>
                                  </tr>
                              </thead>
@@ -33,6 +34,7 @@
                                          <td><?= $x++; ?></td>
                                          <td><?= $row->kode_kriteria ?></td>
                                          <td><?= $row->nama_kriteria ?></td>
+                                         <td><?= $row->atribut ?></td>
                                          <td>
                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $a++; ?>">
                                                  <i class="fa fa-edit"></i>
@@ -65,6 +67,15 @@
                              <label for="kriteria">Nama Kriteria</label>
                              <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" required>
                          </div>
+
+                         <div class="form-group">
+                             <label for="kriteria">Atribut</label>
+                             <select name="atribut" id="attr" class="form-control" required>
+                                 <option value="">-- Pilih Atribut --</option>
+                                 <option value="benefit">Benefit</option>
+                                 <option value="cost">Cost</option>
+                             </select>
+                         </div>
                          <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> | Simpan</button>
                      </div>
                  </form>
@@ -82,31 +93,48 @@
  <!-- Modal Edit -->
  <?php
     $y = 1;
-    foreach ($master_kriteria->result() as $row) { ?>
+    foreach ($master_kriteria->result() as $row) {
+        $a = $row->atribut;
+    ?>
      <div class="modal fade" id="editModal<?= $y++; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
              <div class="modal-content">
-                 <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true">&times;</span>
-                     </button>
-                 </div>
-                 <div class="modal-body">
-                     <div class="form-group">
-                         <label for="kriteria">Kode Kriteria</label>
-                         <input type="text" class="form-control" id="kode" name="kode" value="<?= $row->kode_kriteria ?>" readonly>
+                 <form action="<?= base_url('admin/Master/update_kriteria/' . $row->id_master_kriteria) ?>" method="post">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
                      </div>
+                     <div class="modal-body">
+                         <div class="form-group">
+                             <label for="kriteria">Kode Kriteria</label>
+                             <input type="text" class="form-control" id="kode" name="kode" value="<?= $row->kode_kriteria ?>" readonly>
+                         </div>
 
-                     <div class="form-group">
-                         <label for="kriteria">Nama Kriteria</label>
-                         <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" value="<?= $row->nama_kriteria ?>">
+                         <div class="form-group">
+                             <label for="kriteria">Nama Kriteria</label>
+                             <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" value="<?= $row->nama_kriteria ?>">
+                         </div>
+
+                         <div class="form-group">
+                             <label for="kriteria">Atribut</label>
+                             <select name="atribut" id="attr" class="form-control" required>
+                                 <option value="">-- Pilih Atribut --</option>
+                                 <option <?php if ($a == "benefit") {
+                                                echo "selected";
+                                            } ?> value="benefit">Benefit</option>
+                                 <option <?php if ($a == "cost") {
+                                                echo "selected";
+                                            } ?> value="cost">Cost</option>
+                             </select>
+                         </div>
                      </div>
-                 </div>
-                 <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     <button type="button" class="btn btn-primary">Save changes</button>
-                 </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                         <button type="submit" class="btn btn-primary">Save changes</button>
+                     </div>
+                 </form>
              </div>
          </div>
      </div>

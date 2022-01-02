@@ -33,9 +33,23 @@ class Master extends CI_Controller
         $table = 'tbl_master_kriteria';
         $data = array(
             'kode_kriteria' => $this->input->post('kode'),
-            'nama_kriteria' => $this->input->post('nama_kriteria')
+            'nama_kriteria' => $this->input->post('nama_kriteria'),
+            'atribut'       => $this->input->post('atribut')
         );
         $this->m_data->simpan_data($table, $data);
+        redirect('admin/Master');
+    }
+
+    public function update_kriteria($id)
+    {
+        $table = 'tbl_master_kriteria';
+        $data = array(
+            'kode_kriteria' => $this->input->post('kode'),
+            'nama_kriteria' => $this->input->post('nama_kriteria'),
+            'atribut'       => $this->input->post('atribut')
+        );
+        $where = array('id_master_kriteria' => $id);
+        $this->m_data->update_data($table, $data, $where);
         redirect('admin/Master');
     }
 
@@ -44,7 +58,7 @@ class Master extends CI_Controller
         $data = [
             'name'  => $this->session->userdata('nama'),
             'bobot' => $this->m_data->get_data('tbl_master_kriteria'),
-            'title' => 'Master Kriteria',
+            'title' => 'Master Alternatif',
             'conten' => 'conten/master_alternatif',
             'kode'  => $this->m_data->kd_alt(),
             'master_alternatif' => $this->m_data->get_data('tbl_master_alternatif')
@@ -61,5 +75,80 @@ class Master extends CI_Controller
         );
         $this->m_data->simpan_data($table, $data);
         redirect('admin/Master/alternatif');
+    }
+
+    public function update_alt($id)
+    {
+        $table = 'tbl_master_alternatif';
+        $data = array(
+            'kode_alt' => $this->input->post('kode'),
+            'nama_alt' => $this->input->post('nama_alt')
+        );
+        $where = array('id_master_alt' => $id);
+        $this->m_data->update_data($table, $data, $where);
+        redirect('admin/Master/alternatif');
+    }
+
+    public function desa()
+    {
+        $data = [
+            'name'  => $this->session->userdata('nama'),
+            'title' => 'Master Desa',
+            'conten' => 'conten/master_desa',
+            'master_desa' => $this->m_data->get_data('tbl_master_desa')
+        ];
+        $this->load->view('template/conten', $data);
+    }
+
+    public function tambah_desa()
+    {
+        $table = 'tbl_master_desa';
+        $data = array(
+            'nama_desa' => $this->input->post('nama_desa')
+        );
+        $this->m_data->simpan_data($table, $data);
+        redirect('admin/Master/desa');
+    }
+
+    public function update_desa($id)
+    {
+        $table = 'tbl_master_desa';
+        $data = array(
+            'nama_desa' => $this->input->post('nama_desa')
+        );
+        $where = array('id_master_desa' => $id);
+        $this->m_data->update_data($table, $data, $where);
+        redirect('admin/Master/desa');
+    }
+
+    public function jarak($id)
+    {
+        $data = [
+            'name'  => $this->session->userdata('nama'),
+            'title' => 'Master Jarak',
+            'conten' => 'conten/master_jarak',
+            'master_desa' => $this->m_data->get_data('tbl_master_desa'),
+            'master_alternatif' => $this->m_data->get_data('tbl_master_alternatif'),
+            'get_data' => $this->m_data->get_data_by_id('tbl_master_desa', array('id_master_desa' => $id)),
+            // 'kriteria' => $this->m_data->get_data('tbl_master_kriteria')
+        ];
+        $this->load->view('template/conten', $data);
+    }
+
+    public function tambah_jarak()
+    {
+        $table = 'tbl_master_jarak';
+        $args = $this->input->post();
+        $alt = $args['jarak'];
+        foreach ($alt as $key => $value) {
+            $data_jarak = array(
+                'jarak'         => $args['jarak'][$value],
+                'fk_alternatif' => $args['sekolah'][$value],
+                'fk_desa'       => $args['id_desa'][$value]
+            );
+        }
+        $key++;
+        $this->m_data->simpan_data($table, $data_jarak);
+        redirect('admin/Master/desa');
     }
 }

@@ -83,27 +83,29 @@ foreach ($master_alternatif->result() as $row) { ?>
     <div class="modal fade" id="editModal<?= $y++; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="kriteria">Kode Alternatif</label>
-                        <input type="text" class="form-control" id="kode" name="kode" value="<?= $row->kode_alt ?>" readonly>
+                <form action="<?= base_url('admin/Master/update_alt/' . $row->id_master_alt) ?>" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="kriteria">Kode Alternatif</label>
+                            <input type="text" class="form-control" id="kode" name="kode" value="<?= $row->kode_alt ?>" readonly>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="kriteria">Nama Alternatif</label>
-                        <input type="text" class="form-control" id="nama_alt" name="nama_alt" value="<?= $row->nama_alt ?>">
+                        <div class="form-group">
+                            <label for="kriteria">Nama Alternatif</label>
+                            <input type="text" class="form-control" id="nama_alt" name="nama_alt" value="<?= $row->nama_alt ?>">
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
