@@ -139,16 +139,19 @@ class Master extends CI_Controller
     {
         $table = 'tbl_master_jarak';
         $args = $this->input->post();
-        $alt = $args['jarak'];
-        foreach ($alt as $key => $value) {
-            $data_jarak = array(
-                'jarak'         => $args['jarak'][$value],
-                'fk_alternatif' => $args['sekolah'][$value],
-                'fk_desa'       => $args['id_desa'][$value]
+        $alt = $args['id_desa'];
+        $index = 0;
+        $data = array();
+        foreach ($alt as $key) {
+            $data = array(
+                'jarak'         => $args['jarak'][$index],
+                'fk_alternatif' => $args['sekolah'][$index],
+                'fk_desa'       => $key
             );
         }
-        $key++;
-        $this->m_data->simpan_data($table, $data_jarak);
+        $index++;
+        //$this->m_data->simpan_data('', $data);
+        $this->db->insert('tbl_master_jarak', $data);
         redirect('admin/Master/desa');
     }
 }
