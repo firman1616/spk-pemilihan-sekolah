@@ -26,29 +26,6 @@ class M_data extends CI_Model
     $this->db->delete($table, $where);
   }
 
-  public function upload_data_brand($filename)
-  {
-    ini_set('memory_limit', '-1');
-    $inputFileName = './assets/doc/' . $filename;
-    try {
-      $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-    } catch (Exception $e) {
-      die('Error loading file :' . $e->getMessage());
-    }
-
-    $worksheet = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
-    $numRows = count($worksheet);
-
-    for ($i = 2; $i < ($numRows + 1); $i++) {
-
-      $ins = array(
-        "kode_brand"             => $worksheet[$i]["B"],
-        "nama_brand"             => $worksheet[$i]["C"]
-      );
-      $this->db->insert('tbl_master_brand', $ins);
-    }
-  }
-
   function kd_kriteria()
   {
     $this->db->select('RIGHT(tbl_master_kriteria.id_master_kriteria,5) as kode', FALSE);
@@ -90,5 +67,26 @@ class M_data extends CI_Model
   public function bobot_kriteria($user)
   {
     return $this->db->query("SELECT * FROM tbl_bobot_kriteria WHERE fk_user = $user ORDER BY id_bobot__kriteria DESC LIMIT 1 ");
+  }
+
+  public function jarak_sekolah($desa, $alt, $jar)
+  {
+    $this->db->trans_start();
+    $data = array(
+      'nama_desa' => $desa
+    );
+    $this->db->insert('tbl_master_desa', $data);
+    // get id desa
+    $desa_id = $this->db->insert_id();
+    $result = array();
+    foreach ($alt as $key => $value) {
+      $result[] = array(
+        'fk_desa' => $desa_id,
+        'fk_alternatif' => $_POST['sekolah'][$key],
+        'jarak' => $jar[$key]
+      );
+    }
+    $this->db->insert_batch('tbl_master_jarak', $result);
+    $this->db->trans_complete();
   }
 }

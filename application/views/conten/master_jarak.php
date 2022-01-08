@@ -22,11 +22,11 @@
 
 
                      <div class="form-group">
-                         <form action="<?= base_url('admin/Master/tambah_jarak') ?>" method="post">
+                         <form action="<?= base_url('admin/Master/add_jarak') ?>" method="post">
                              <label for="exampleFormControlInput1">Nama Desa</label>
                              <input type="hidden" class="form-control" id="id_desa" value="<?= $a ?>" name="id_desa">
                              <input type="text" readonly class="form-control" id="nama_desa" value="<?= $b ?>" name="nama_desa">
-                             <?php for ($i = 0; $i < 6; $i++) { ?>
+                             <?php for ($i = 1; $i <= 2; $i++) { ?>
 
                                  <div class="row">
                                      <div class="col">

@@ -63,6 +63,26 @@
                          <div class="form-group">
                              <label for="kriteria">Nama Desa</label>
                              <input type="text" class="form-control" id="nama_kriteria" name="nama_desa" required>
+
+                             <?php for ($i = 0; $i < 6; $i++) { ?>
+
+                                 <div class="row">
+                                     <div class="col">
+                                         <label for="exampleFormControlInput1">Pilih Nama Sekolah</label>
+                                         <select name="sekolah[]" id="sekolah" class="form-control">
+                                             <option value="">Pilih Sekolah</option>
+                                             <?php foreach ($master_alternatif->result() as $row) { ?>
+                                                 <option value="<?= $row->id_master_alt ?>"><?= $row->nama_alt ?></option>
+                                             <?php } ?>
+                                         </select>
+                                     </div>
+                                     <div class="col">
+                                         <label for="jarak">Jarak Sekolah</label>
+                                         <input type="number" name="jarak[]" id="jarak" class="form-control">
+                                     </div>
+                                 </div>
+
+                             <?php } ?>
                          </div>
                          <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> | Simpan</button>
                      </div>
