@@ -11,7 +11,7 @@
  Target Server Version : 100418
  File Encoding         : 65001
 
- Date: 09/01/2022 15:35:02
+ Date: 09/01/2022 20:55:24
 */
 
 SET NAMES utf8mb4;
@@ -209,6 +209,30 @@ INSERT INTO `tbl_master_kriteria` VALUES (2, 'C2', 'Akreditasi', 'benefit');
 INSERT INTO `tbl_master_kriteria` VALUES (3, 'C3', 'Biaya', 'cost');
 INSERT INTO `tbl_master_kriteria` VALUES (4, 'C4', 'Beasiswa', 'benefit');
 INSERT INTO `tbl_master_kriteria` VALUES (5, 'C5', 'Jarak', 'cost');
+
+-- ----------------------------
+-- Table structure for tbl_master_saw
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_master_saw`;
+CREATE TABLE `tbl_master_saw`  (
+  `id_master_saw` int NOT NULL AUTO_INCREMENT,
+  `fk_alt` int NULL DEFAULT NULL,
+  `fasilitas` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `akreditasi` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `biaya` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `beasiswa` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_master_saw`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_master_saw
+-- ----------------------------
+INSERT INTO `tbl_master_saw` VALUES (1, 1, '3', '3', '400', '2');
+INSERT INTO `tbl_master_saw` VALUES (2, 2, '3', '5', '350', '3');
+INSERT INTO `tbl_master_saw` VALUES (3, 3, '7', '5', '600', '4');
+INSERT INTO `tbl_master_saw` VALUES (4, 4, '7', '5', '650', '4');
+INSERT INTO `tbl_master_saw` VALUES (5, 5, '7', '5', '230', '4');
+INSERT INTO `tbl_master_saw` VALUES (6, 6, '2', '3', '300', '2');
 
 -- ----------------------------
 -- Table structure for tbl_user

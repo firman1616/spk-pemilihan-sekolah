@@ -106,4 +106,20 @@ class M_data extends CI_Model
     JOIN tbl_master_alternatif as a ON a.id_master_alt = b.fk_alternatif
     WHERE id_master_desa = $id");
   }
+
+  public function get_master_saw()
+  {
+    return $this->db->query("SELECT
+    id_master_saw,
+    fk_alt,
+    fasilitas,
+    akreditasi,
+    biaya,
+    beasiswa,
+    id_master_alt,
+    nama_alt 
+  FROM
+    `tbl_master_saw`
+    JOIN tbl_master_alternatif ON id_master_alt = fk_alt");
+  }
 }

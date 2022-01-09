@@ -70,21 +70,21 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/Master') ?>">
-                    <i class="fas fa-fw fa-calculator"></i>
-                    <span>Master Kategori</span></a>
-            </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/Master/alternatif') ?>">
-                    <i class="fas fa-fw fa-calculator"></i>
-                    <span>Master Alternatif</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/Master/desa') ?>">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Master Desa</span></a>
+                    <span>Master</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Master Detail:</h6>
+                        <a class="collapse-item" href="<?= site_url('admin/Master') ?>">Kategori</a>
+                        <a class="collapse-item" href="<?= site_url('admin/Master/alternatif') ?>">Alternatif</a>
+                        <a class="collapse-item" href="<?= site_url('admin/Master/desa') ?>">Desa</a>
+                        <!-- <a class="collapse-item" href="<?= site_url('admin/Master/master_saw') ?>">SAW</a> -->
+                    </div>
+                </div>
             </li>
 
 
