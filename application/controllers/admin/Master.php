@@ -140,6 +140,7 @@ class Master extends CI_Controller
             'master_desa' => $this->m_data->get_data('tbl_master_desa'),
             'master_alternatif' => $this->m_data->get_data('tbl_master_alternatif'),
             'get_data' => $this->m_data->get_data_by_id('tbl_master_desa', array('id_master_desa' => $id)),
+            'get_jarak' => $this->m_data->get_jarak($id)
             // 'kriteria' => $this->m_data->get_data('tbl_master_kriteria')
         ];
         $this->load->view('template/conten', $data);

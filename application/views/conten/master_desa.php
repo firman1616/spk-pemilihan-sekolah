@@ -32,13 +32,8 @@
                                          <td><?= $x++; ?></td>
                                          <td><?= $row->nama_desa ?></td>
                                          <td>
-                                             <button type="button" class="btn btn-primary" title="Detail">
-                                                 <i class="fa fa-list"></i>
-                                             </button>
-                                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal<?= $a++; ?>">
-                                                 <i class="fa fa-edit"></i>
-                                             </button>
-                                             <a href="<?= site_url('admin/Master/jarak/' . $row->id_master_desa) ?>" class="btn btn-success" title="Tambah Jarak"><i class="fa fa-plus"></i></a>
+                                             <a href="<?= base_url('admin/Master/jarak/' . $row->id_master_desa) ?>" class="btn btn-primary"><i class="fa fa-list"></i></a>
+
 
 
                                          </td>

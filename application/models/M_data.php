@@ -89,4 +89,21 @@ class M_data extends CI_Model
     $this->db->insert_batch('tbl_master_jarak', $result);
     $this->db->trans_complete();
   }
+
+  public function get_jarak($id)
+  {
+    return $this->db->query("SELECT
+    id_master_desa,
+    nama_desa,
+    a.id_master_alt,
+    a.nama_alt,
+    b.fk_desa,
+    b.fk_alternatif,
+    b.jarak
+  FROM
+    tbl_master_desa
+    JOIN tbl_master_jarak as b ON b.fk_desa = id_master_desa
+    JOIN tbl_master_alternatif as a ON a.id_master_alt = b.fk_alternatif
+    WHERE id_master_desa = $id");
+  }
 }
