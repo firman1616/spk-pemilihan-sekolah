@@ -17,12 +17,24 @@ $int_matrix = count($nama_arr);
         </div>
         <div class="card-body">
             <!-- Pilih Desa -->
-            <select name="desa" id="des" class="form-control" style="width: 25%;">
-                <option value="">Pilih Desa</option>
+            <select name="desa" id="desa" class="form-control" style="width: 25%;" onchange="return autofill();">
+                <option value="" disabled selected>Pilih Desa</option>
                 <?php foreach ($desa->result() as $row) { ?>
                     <option value="<?= $row->id_master_desa ?>"><?= $row->nama_desa ?></option>
                 <?php  } ?>
             </select>
+            <br>
+            <div class="row">
+
+
+                <?php for ($i = 0; $i < 6; $i++) { ?>
+                    <div class="col col-lg-4">
+                        <input type="number" name="jarak[<?= $i ?>]" id="jarak<?= $i ?>" class="form-control">
+                    </div>
+                <?php } ?>
+
+
+            </div>
             <!-- End Desa -->
             <br>
             <div class="table-responsive">
@@ -58,6 +70,7 @@ $int_matrix = count($nama_arr);
                         $x = 1;
                         $a = 1;
                         $i = 0;
+                        $j = 0;
                         foreach ($get_data->result() as $row) { ?>
 
                             <tr>
@@ -67,7 +80,7 @@ $int_matrix = count($nama_arr);
                                 <td><?= $row->akreditasi ?></td>
                                 <td><?= $row->biaya ?></td>
                                 <td><?= $row->beasiswa ?></td>
-                                <td><input type="number" class="form-control" name="jarak_<?= $i++; ?>" id="jarak_<?= $i++; ?>" readonly></td>
+                                <td><input type="number" class="form-control" name="jarak_<?= $i++; ?>" id="jarak_<?= $j++; ?>" readonly></td>
                                 <td>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $a++; ?>">
                                         <i class="fa fa-edit"></i>

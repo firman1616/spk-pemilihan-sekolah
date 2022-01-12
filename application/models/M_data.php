@@ -122,4 +122,21 @@ class M_data extends CI_Model
     `tbl_master_saw`
     JOIN tbl_master_alternatif ON id_master_alt = fk_alt");
   }
+
+  function cari($id)
+  {
+    return $this->db->query("SELECT
+    id_master_desa,
+    nama_desa,
+    b.fk_desa,
+    a.id_master_alt,
+    b.fk_alternatif,
+    b.jarak 
+  FROM
+    tbl_master_desa
+    JOIN tbl_master_jarak AS b ON b.fk_desa = id_master_desa
+    JOIN tbl_master_alternatif AS a ON a.id_master_alt = b.fk_alternatif 
+  WHERE
+    id_master_desa = $id");
+  }
 }

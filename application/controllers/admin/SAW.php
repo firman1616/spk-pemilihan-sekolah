@@ -25,7 +25,10 @@ class SAW extends CI_Controller
             'bobot' => $this->m_data->bobot_kriteria($this->session->userdata('id')),
             'kriteria' => $this->m_data->get_data('tbl_master_kriteria'),
             'get_data' => $this->m_data->get_master_saw(),
-            'desa' => $this->m_data->get_data('tbl_master_desa')
+            'desa' => $this->m_data->get_data('tbl_master_desa'),
+            'footer_js'        => array(
+                'assets/js/hitung.js',
+            ),
 
         ];
         $this->load->view('template/conten', $data);
@@ -43,5 +46,12 @@ class SAW extends CI_Controller
         $where = array('id_master_saw' => $id);
         $this->m_data->update_data($table, $data, $where);
         redirect('admin/SAW');
+    }
+
+    public function cari()
+    {
+        $kode = $_GET['kode'];
+        $cari = $this->M_data->cari($kode)->result();
+        echo json_encode($cari);
     }
 }
