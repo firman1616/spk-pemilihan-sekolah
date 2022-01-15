@@ -16,83 +16,78 @@ $int_matrix = count($nama_arr);
             <h6 class="m-0 font-weight-bold text-primary">Perhitungan SAW</h6>
         </div>
         <div class="card-body">
-            <!-- Pilih Desa -->
-            <select name="desa" id="desa" class="form-control" style="width: 25%;" onchange="return autofill();">
-                <option value="" disabled selected>Pilih Desa</option>
-                <?php foreach ($desa->result() as $row) { ?>
-                    <option value="<?= $row->id_master_desa ?>"><?= $row->nama_desa ?></option>
-                <?php  } ?>
-            </select>
-            <br>
-            <div class="row">
-
-
-                <?php for ($i = 0; $i < 6; $i++) { ?>
-                    <div class="col col-lg-4">
-                        <input type="number" name="jarak[<?= $i ?>]" id="jarak<?= $i ?>" class="form-control">
-                    </div>
-                <?php } ?>
-
-
-            </div>
-            <!-- End Desa -->
-            <br>
-            <div class="table-responsive">
-                <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th style="width: 30%;">Bobot Perhitungan AHP</th>
-                            <?php foreach ($bobot->result() as $row) { ?>
-                                <th><?= number_format($row->r_fasilitas, 3)  ?></th>
-                                <th><?= number_format($row->r_akreditasi, 3)  ?></th>
-                                <th><?= number_format($row->r_biaya, 3)  ?></th>
-                                <th><?= number_format($row->r_beasiswa, 3)  ?></th>
-                                <th><?= number_format($row->r_jarak, 3)  ?></th>
-                            <?php } ?>
-                        </tr>
-                    </thead>
-                </table>
-                <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Alternatif</th>
-                            <th>Fasilitas</th>
-                            <th>Akreditasi</th>
-                            <th>Biaya</th>
-                            <th>Beasiswa</th>
-                            <th style="width: 10%;">Jarak</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $x = 1;
-                        $a = 1;
-                        $i = 0;
-                        $j = 0;
-                        foreach ($get_data->result() as $row) { ?>
-
+            <form action="<?= base_url('admin/SAW/hasil_saw') ?>" method="post">
+                <button type="submit" class="btn btn-primary" name="hitung"><i class="fa fa-calculator"></i> | Hitung</button>
+                <!-- Pilih Desa -->
+                <select name="desa" id="desa" class="form-control" style="width: 25%;" onchange="return autofill();" required>
+                    <option value="" disabled selected>Pilih Desa</option>
+                    <?php foreach ($desa->result() as $row) { ?>
+                        <option value="<?= $row->id_master_desa ?>"><?= $row->nama_desa ?></option>
+                    <?php  } ?>
+                </select>
+                <!-- End Desa -->
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td><?= $x++; ?></td>
-                                <td><?= $row->nama_alt ?></td>
-                                <td><?= $row->fasilitas ?></td>
-                                <td><?= $row->akreditasi ?></td>
-                                <td><?= $row->biaya ?></td>
-                                <td><?= $row->beasiswa ?></td>
-                                <td><input type="number" class="form-control" name="jarak_<?= $i++; ?>" id="jarak_<?= $j++; ?>" readonly></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $a++; ?>">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-
-                                </td>
+                                <th style="width: 30%;">Bobot Perhitungan AHP</th>
+                                <?php foreach ($bobot->result() as $row) { ?>
+                                    <th><?= number_format($row->r_fasilitas, 3)  ?></th>
+                                    <th><?= number_format($row->r_akreditasi, 3)  ?></th>
+                                    <th><?= number_format($row->r_biaya, 3)  ?></th>
+                                    <th><?= number_format($row->r_beasiswa, 3)  ?></th>
+                                    <th><?= number_format($row->r_jarak, 3)  ?></th>
+                                <?php } ?>
                             </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Alternatif</th>
+                                <th>Fasilitas</th>
+                                <th>Akreditasi</th>
+                                <th>Biaya</th>
+                                <th>Beasiswa</th>
+                                <th>Jarak</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $x = 1;
+                            $a = 1;
+                            $i = 0;
+                            $j = 0;
+                            $f = 0;
+                            $akr = 0;
+                            $bi = 0;
+                            $be = 0;
+                            foreach ($get_data->result() as $row) { ?>
 
-                        <?php  } ?>
-                    </tbody>
-                </table>
-            </div>
+                                <tr>
+                                    <td><?= $x++; ?></td>
+                                    <td><?= $row->nama_alt ?></td>
+                                    <td><input type="number" class="form-control" name="fas<?= $f++ ?>" value="<?= $row->fasilitas ?>" readonly> </td>
+                                    <td><input type="number" class="form-control" name="akr<?= $akr++ ?>" value="<?= $row->akreditasi ?>" readonly> </td>
+                                    <td><input type="number" class="form-control" name="bia<?= $bi++; ?>" value="<?= $row->biaya ?>" readonly> </td>
+                                    <td><input type="number" class="form-control" name="bea<?= $be++; ?>" value="<?= $row->beasiswa ?>" readonly> </td>
+                                    <td><input type="number" class="form-control" name="jarak<?= $j++ ?>" id="jarak<?= $i++ ?>" readonly></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $a++; ?>">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+
+                            <?php  } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
         </div>
     </div>
 

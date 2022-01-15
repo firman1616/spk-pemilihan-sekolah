@@ -54,4 +54,19 @@ class SAW extends CI_Controller
         $cari = $this->M_data->cari($kode)->result();
         echo json_encode($cari);
     }
+
+    public function hasil_saw()
+    {
+        $data = [
+            'user_id' => $this->session->userdata('id'),
+            'title' => 'Hasil Perbandingan SAW',
+            'name' => $this->session->userdata('nama'),
+            'conten' => 'conten/hasil_saw',
+            'bobot' => $this->m_data->bobot_kriteria($this->session->userdata('id')),
+            'footer_js' => array(
+                'assets/js/SAW.js'
+            )
+        ];
+        $this->load->view('template/conten', $data);
+    }
 }
