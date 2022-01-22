@@ -70,54 +70,6 @@
     var BASE_URL = "<?php echo base_url(); ?>";
 </script>
 
-<!-- <script>
-    $(document).ready(function() {
-        var int_matrix = <?php echo $int_matrix; ?>;
-        $('select[name^=index]').change(function() {
-            var jumlah_x = 0;
-            var jumlah_y = 0;
-            var index = $(this).data("id");
-            var index_x = index.split("-")[0];
-            var index_y = index.split("-")[1];
-            var value = $(this).find(":selected").val();
-
-
-
-            if (value == 0) {
-                $('input[name="index[' + index_y + '][' + index_x + ']"]').val(0);
-            } else { 
-                $('input[name="index[' + index_y + '][' + index_x + ']"]').val((1 / value).toFixed(2));
-            }
-
-            for (let i = 0; i < int_matrix; i++) {
-                jumlah_y += Number($('[name="index[' + i + '][' + index_y + ']"]').val());
-                jumlah_x += Number($('[name="index[' + i + '][' + index_x + ']"]').val());
-            }
-
-            $('[name="jumlah[' + index_y + ']"]').val(jumlah_y);
-            $('[name="jumlah[' + index_x + ']"]').val(jumlah_x);
-
-            // EIGEN
-            for (let i = 0; i < int_matrix; i++) { //kebawah
-                var temp_value_x = $('[name="index[' + i + '][' + index_x + ']"]').val();
-                var temp_value_y = $('[name="index[' + i + '][' + index_y + ']"]').val();
-
-                $('[name="eigen[' + i + '][' + index_x + ']"]').val(temp_value_x / jumlah_x);
-                $('[name="eigen[' + i + '][' + index_y + ']"]').val(temp_value_y / jumlah_y);
-
-                var eigen_x = 0;
-                for (let j = 0; j < int_matrix; j++) { //kesamping
-                    eigen_x += Number($('[name="eigen[' + i + '][' + j + ']"]').val());
-                }
-
-                $('[name="rata-rata[' + i + ']"]').val(eigen_x / int_matrix);
-            }
-
-
-        });
-    });
-</script> -->
-
 <!-- costume js -->
 <?php
 if (isset($footer_js)) {
