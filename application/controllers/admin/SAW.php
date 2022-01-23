@@ -97,6 +97,8 @@ class SAW extends CI_Controller
             $ahp5 = $row->r_jarak;
         }
 
+
+
         $data = [
             'user_id' => $this->session->userdata('id'),
             'title' => 'Hasil Perbandingan SAW',
@@ -156,14 +158,20 @@ class SAW extends CI_Controller
             'km4' => min($jar) / $jar[4],
             'km5' => min($jar) / $jar[5],
 
-            'bobot1' => $ahp1,
-            'bobot2' => $ahp2,
-            'bobot3' => $ahp3,
-            'bobot4' => $ahp4,
-            'bobot5' => $ahp5,
+            'bobot0' => $ahp1,
+            'bobot1' => $ahp2,
+            'bobot2' => $ahp3,
+            'bobot3' => $ahp4,
+            'bobot4' => $ahp5,
 
         ];
 
         $this->load->view('template/conten', $data);
+    }
+
+    public function simpan_data()
+    {
+        $table = 'tbl_alt_saw2';
+        $data = array();
     }
 }
