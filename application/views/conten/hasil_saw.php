@@ -208,12 +208,12 @@
                         </tr>
                     </thead>
                     <?php
-                    $ref0 =  number_format(($bobot0 * $fas0) + ($bobot1 * $akr0) + ($bobot2 * $spp0) + ($bobot3 * $bantuan0) + ($bobot4 * $km0), 3);
-                    $ref1 =  number_format(($bobot0 * $fas1) + ($bobot1 * $akr1) + ($bobot2 * $spp1) + ($bobot3 * $bantuan1) + ($bobot4 * $km1), 3);
-                    $ref2 =  number_format(($bobot0 * $fas2) + ($bobot1 * $akr2) + ($bobot2 * $spp2) + ($bobot3 * $bantuan2) + ($bobot4 * $km2), 3);
-                    $ref3 =  number_format(($bobot0 * $fas3) + ($bobot1 * $akr3) + ($bobot2 * $spp3) + ($bobot3 * $bantuan3) + ($bobot4 * $km3), 3);
-                    $ref4 =  number_format(($bobot0 * $fas4) + ($bobot1 * $akr4) + ($bobot2 * $spp4) + ($bobot3 * $bantuan4) + ($bobot4 * $km4), 3);
-                    $ref5 =  number_format(($bobot0 * $fas5) + ($bobot1 * $akr5) + ($bobot2 * $spp5) + ($bobot3 * $bantuan5) + ($bobot4 * $km5), 3);
+                    // $ref0 =  number_format(($bobot0 * $fas0) + ($bobot1 * $akr0) + ($bobot2 * $spp0) + ($bobot3 * $bantuan0) + ($bobot4 * $km0), 3);
+                    // $ref1 =  number_format(($bobot0 * $fas1) + ($bobot1 * $akr1) + ($bobot2 * $spp1) + ($bobot3 * $bantuan1) + ($bobot4 * $km1), 3);
+                    // $ref2 =  number_format(($bobot0 * $fas2) + ($bobot1 * $akr2) + ($bobot2 * $spp2) + ($bobot3 * $bantuan2) + ($bobot4 * $km2), 3);
+                    // $ref3 =  number_format(($bobot0 * $fas3) + ($bobot1 * $akr3) + ($bobot2 * $spp3) + ($bobot3 * $bantuan3) + ($bobot4 * $km3), 3);
+                    // $ref4 =  number_format(($bobot0 * $fas4) + ($bobot1 * $akr4) + ($bobot2 * $spp4) + ($bobot3 * $bantuan4) + ($bobot4 * $km4), 3);
+                    // $ref5 =  number_format(($bobot0 * $fas5) + ($bobot1 * $akr5) + ($bobot2 * $spp5) + ($bobot3 * $bantuan5) + ($bobot4 * $km5), 3);
                     // $max = array($ref0 => 'SMA Jati Agung', $ref1 => 'SMA Dharma Wanita 4', $ref2 => 'SMA Muhammadiyah 1', $ref3 => 'SMA Ulul Albab', $ref4 => 'SMA Wachid Hasyim 2', $ref5 => 'SMA Yayasan Taman');
                     // krsort($max);
 

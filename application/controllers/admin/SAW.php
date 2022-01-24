@@ -87,15 +87,20 @@ class SAW extends CI_Controller
             array_push($jar, $_POST['jarak' . $e]);
         }
 
-        $ahp = $this->m_data->bobot_kriteria($this->session->userdata('id'));
+        $ahp = $this->m_data->bobot_kriteria($this->session->userdata('id'))->row_array();
 
-        foreach ($ahp->result() as $row) {
-            $ahp1 = $row->r_fasilitas;
-            $ahp2 = $row->r_akreditasi;
-            $ahp3 = $row->r_biaya;
-            $ahp4 = $row->r_beasiswa;
-            $ahp5 = $row->r_jarak;
-        }
+
+        $ref1 = ($ahp['r_fasilitas'] * ($fa1[0] / max($fa1))) + ($ahp['r_akreditasi'] * ($akre[0] / max($akre))) + ($ahp['r_biaya'] * (min($duit) / $duit[0])) + ($ahp['r_beasiswa'] * ($bonus[0] / max($bonus))) + ($ahp['r_jarak'] * (min($jar) / $jar[0]));
+
+        $ref2 = ($ahp['r_fasilitas'] * ($fa1[1] / max($fa1))) + ($ahp['r_akreditasi'] * ($akre[1] / max($akre))) + ($ahp['r_biaya'] * (min($duit) / $duit[1])) + ($ahp['r_beasiswa'] * ($bonus[1] / max($bonus))) + ($ahp['r_jarak'] * (min($jar) / $jar[1]));
+
+        $ref3 = ($ahp['r_fasilitas'] * ($fa1[2] / max($fa1))) + ($ahp['r_akreditasi'] * ($akre[2] / max($akre))) + ($ahp['r_biaya'] * (min($duit) / $duit[2])) + ($ahp['r_beasiswa'] * ($bonus[2] / max($bonus))) + ($ahp['r_jarak'] * (min($jar) / $jar[2]));
+
+        $ref4 = ($ahp['r_fasilitas'] * ($fa1[3] / max($fa1))) + ($ahp['r_akreditasi'] * ($akre[3] / max($akre))) + ($ahp['r_biaya'] * (min($duit) / $duit[3])) + ($ahp['r_beasiswa'] * ($bonus[3] / max($bonus))) + ($ahp['r_jarak'] * (min($jar) / $jar[3]));
+
+        $ref5 = ($ahp['r_fasilitas'] * ($fa1[4] / max($fa1))) + ($ahp['r_akreditasi'] * ($akre[4] / max($akre))) + ($ahp['r_biaya'] * (min($duit) / $duit[4])) + ($ahp['r_beasiswa'] * ($bonus[4] / max($bonus))) + ($ahp['r_jarak'] * (min($jar) / $jar[4]));
+
+        $ref6 = ($ahp['r_fasilitas'] * ($fa1[5] / max($fa1))) + ($ahp['r_akreditasi'] * ($akre[5] / max($akre))) + ($ahp['r_biaya'] * (min($duit) / $duit[5])) + ($ahp['r_beasiswa'] * ($bonus[5] / max($bonus))) + ($ahp['r_jarak'] * (min($jar) / $jar[5]));
 
 
 
@@ -158,11 +163,18 @@ class SAW extends CI_Controller
             'km4' => min($jar) / $jar[4],
             'km5' => min($jar) / $jar[5],
 
-            'bobot0' => $ahp1,
-            'bobot1' => $ahp2,
-            'bobot2' => $ahp3,
-            'bobot3' => $ahp4,
-            'bobot4' => $ahp5,
+            'bobot0' => $ahp['r_fasilitas'],
+            'bobot1' => $ahp['r_akreditasi'],
+            'bobot2' => $ahp['r_biaya'],
+            'bobot3' => $ahp['r_beasiswa'],
+            'bobot4' => $ahp['r_jarak'],
+
+            'ref0' => $ref1,
+            'ref1' => $ref2,
+            'ref2' => $ref3,
+            'ref3' => $ref4,
+            'ref4' => $ref5,
+            'ref5' => $ref6,
 
         ];
 
