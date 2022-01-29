@@ -111,7 +111,7 @@ class SAW extends CI_Controller
             'conten' => 'conten/hasil_saw',
             'ahp' => $this->m_data->bobot_kriteria($this->session->userdata('id')),
             'footer_js' => array(
-                // 'assets/js/SAW.js'
+                'assets/js/SAW.js'
             ),
             'fasi1' => $fa1,
             'fasmax' => max($fa1),
@@ -181,9 +181,30 @@ class SAW extends CI_Controller
         $this->load->view('template/conten', $data);
     }
 
-    public function simpan_data()
+    public function simpan_alt()
     {
         $table = 'tbl_alt_saw2';
-        $data = array();
+        $data = array(
+            'jarak_1'   => $this->input->post('jar0'),
+            'jarak_2'   => $this->input->post('jar1'),
+            'jarak_3'   => $this->input->post('jar2'),
+            'jarak_4'   => $this->input->post('jar3'),
+            'jarak_5'   => $this->input->post('jar4'),
+            'jarak_6'   => $this->input->post('jar5'),
+            'ref1'  => $this->input->post('ref1'),
+            'ref2'  => $this->input->post('ref2'),
+            'ref3'  => $this->input->post('ref3'),
+            'ref4'  => $this->input->post('ref4'),
+            'ref5'  => $this->input->post('ref5'),
+            'ref6'  => $this->input->post('ref6'),
+            'fk_user' => $this->input->post('user')
+        );
+        $simpan = $this->db->insert($table, $data);
+        if ($simpan) {
+            $output = array('status' => true);
+        } else {
+            $output = array('status' => false);
+        }
+        echo json_encode($output);
     }
 }

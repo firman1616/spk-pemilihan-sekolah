@@ -226,16 +226,25 @@
                     //     echo "<tr><td>$kunci</td>
                     //   <td>$nilai</td></tr>\n";
                     // }
+
+
                     ?>
 
                     <input type="hidden" class="form-control" name="jar0" id="jar0" value="<?= $jarak1[0] ?>">
+                    <input type="hidden" class="form-control" name="jar1" id="jar1" value="<?= $jarak1[1] ?>">
+                    <input type="hidden" class="form-control" name="jar2" id="jar2" value="<?= $jarak1[2] ?>">
+                    <input type="hidden" class="form-control" name="jar3" id="jar3" value="<?= $jarak1[3] ?>">
+                    <input type="hidden" class="form-control" name="jar4" id="jar4" value="<?= $jarak1[4] ?>">
+                    <input type="hidden" class="form-control" name="jar5" id="jar5" value="<?= $jarak1[5] ?>">
 
-                    <input type="hidden" class="form-control" name="ref0" value="<?= $ref0 ?>">
-                    <input type="hidden" class="form-control" name="ref1" value="<?= $ref1 ?>">
-                    <input type="hidden" class="form-control" name="ref2" value="<?= $ref2 ?>">
-                    <input type="hidden" class="form-control" name="ref3" value="<?= $ref3 ?>">
-                    <input type="hidden" class="form-control" name="ref4" value="<?= $ref4 ?>">
-                    <input type="hidden" class="form-control" name="ref5" value="<?= $ref5 ?>">
+                    <input type="hidden" class="form-control" name="user" id="user" value="<?= $user_id ?>">
+
+                    <input type="hidden" class="form-control" name="ref1" id="ref1" value="<?= $ref0 ?>">
+                    <input type="hidden" class="form-control" name="ref2" id="ref2" value="<?= $ref1 ?>">
+                    <input type="hidden" class="form-control" name="ref3" id="ref3" value="<?= $ref2 ?>">
+                    <input type="hidden" class="form-control" name="ref4" id="ref4" value="<?= $ref3 ?>">
+                    <input type="hidden" class="form-control" name="ref5" id="ref5" value="<?= $ref4 ?>">
+                    <input type="hidden" class="form-control" name="ref6" id="ref6" value="<?= $ref5 ?>">
 
                     <tbody>
                         <tr>
@@ -289,16 +298,55 @@
                     </tbody>
                 </table>
 
-                <!-- <table>
-                    <tr>
-                        <td><?= number_format($ref0, 3) ?></td>
-                        <td><?= number_format($ref1, 3) ?></td>
-                        <td><?= number_format($ref2, 3) ?></td>
-                        <td><?= number_format($ref3, 3) ?></td>
-                        <td><?= number_format($ref4, 3) ?></td>
-                        <td><?= number_format($ref5, 3) ?></td>
-                    </tr>
-                </table> -->
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Bobot</th>
+                            <th>Nama Sekolah</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    $ref0 =  number_format(($bobot0 * $fas0) + ($bobot1 * $akr0) + ($bobot2 * $spp0) + ($bobot3 * $bantuan0) + ($bobot4 * $km0), 3);
+                    $ref1 =  number_format(($bobot0 * $fas1) + ($bobot1 * $akr1) + ($bobot2 * $spp1) + ($bobot3 * $bantuan1) + ($bobot4 * $km1), 3);
+                    $ref2 =  number_format(($bobot0 * $fas2) + ($bobot1 * $akr2) + ($bobot2 * $spp2) + ($bobot3 * $bantuan2) + ($bobot4 * $km2), 3);
+                    $ref3 =  number_format(($bobot0 * $fas3) + ($bobot1 * $akr3) + ($bobot2 * $spp3) + ($bobot3 * $bantuan3) + ($bobot4 * $km3), 3);
+                    $ref4 =  number_format(($bobot0 * $fas4) + ($bobot1 * $akr4) + ($bobot2 * $spp4) + ($bobot3 * $bantuan4) + ($bobot4 * $km4), 3);
+                    $ref5 =  number_format(($bobot0 * $fas5) + ($bobot1 * $akr5) + ($bobot2 * $spp5) + ($bobot3 * $bantuan5) + ($bobot4 * $km5), 3);
+                    // $max = array($ref0 => 'SMA Jati Agung', $ref1 => 'SMA Dharma Wanita 4', $ref2 => 'SMA Muhammadiyah 1', $ref3 => 'SMA Ulul Albab', $ref4 => 'SMA Wachid Hasyim 2', $ref5 => 'SMA Yayasan Taman');
+                    // krsort($max);
+
+                    // $arrlength = count($max);
+                    // for ($x = 0; $x < $arrlength; $x++) {
+                    //     echo $max[$x];
+                    //     echo "<br>";
+                    // }
+                    // foreach ($max as $kunci => $nilai) {
+                    //     echo "<tr><td>$kunci</td>
+                    //   <td>$nilai</td></tr>\n";
+                    // }
+
+
+                    ?>
+
+                    <tbody>
+                        <?php
+
+
+                        $x = 1;
+                        $max = array($ref0 => 'SMA Jati Agung', $ref1 => 'SMA Dharma Wanita 4', $ref2 => 'SMA Muhammadiyah 1', $ref3 => 'SMA Ulul Albab', $ref4 => 'SMA Wachid Hasyim 2', $ref5 => 'SMA Yayasan Taman');
+
+                        krsort($max);
+                        foreach ($max as $kunci => $nilai) { ?>
+                            <tr>
+                                <td><?= number_format($kunci, 3) ?></td>
+                                <td><?= $nilai ?></td>
+                                <td><?= $x++; ?></td>
+                            </tr>
+                        <?php  }
+                        ?>
+                    </tbody>
+                </table>
 
             </div>
         </div>
