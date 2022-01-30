@@ -4,6 +4,8 @@
      <!-- Page Heading -->
      <center>
          <h2>SPK AHP-SAW Pemilihan Sekolah</h2>
+         <br>
+         <h3>Selamat Datang User</h3>
      </center>
 
      <!-- Content Row -->

@@ -29,22 +29,22 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                metode
+                counter
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/AHP') ?>">
+                <a class="nav-link" href="<?= site_url('user/Perhitungan') ?>">
                     <i class="fas fa-fw fa-calculator"></i>
-                    <span>Perhitungan AHP</span></a>
+                    <span>Perhitungan</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?= site_url('admin/SAW') ?>">
                     <i class="fas fa-fw fa-calculator"></i>
                     <span>Perhitungan SAW</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -61,17 +61,14 @@
                     <span>Report Hasil</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Setting
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Master</span>
@@ -82,10 +79,9 @@
                         <a class="collapse-item" href="<?= site_url('admin/Master') ?>">Kategori</a>
                         <a class="collapse-item" href="<?= site_url('admin/Master/alternatif') ?>">Alternatif</a>
                         <a class="collapse-item" href="<?= site_url('admin/Master/desa') ?>">Desa</a>
-                        <!-- <a class="collapse-item" href="<?= site_url('admin/Master/master_saw') ?>">SAW</a> -->
                     </div>
                 </div>
-            </li>
+            </li> -->
 
 
             <!-- Divider -->
