@@ -17,21 +17,31 @@
                 </select>
                 <br>
 
+                <!-- Master SAW -->
                 <table>
-                    <?php
-                    $f = 0;
-                    $akr = 0;
-                    $bi = 0;
-                    $be = 0;
-                    foreach ($saw->result() as $row) { ?>
-                        <tr>
-                            <td><input type="hidden" class="form-control" name="fas<?= $f++; ?>" value="<?= $row->fasilitas ?>"></td>
-                            <td><input type="hidden" class="form-control" name="akr<?= $akr++; ?>" value="<?= $row->akreditasi ?>"></td>
-                            <td><input type="hidden" class="form-control" name="bia<?= $bi++; ?>" value="<?= $row->biaya ?>"></td>
-                            <td><input type="hidden" class="form-control" name="bea<?= $be++ ?>" value="<?= $row->beasiswa ?>"></td>
-                        </tr>
-                    <?php } ?>
+                    <tbody>
+                        <?php
+                        $x = 1;
+                        $a = 1;
+                        $i = 0;
+                        $j = 0;
+                        $f = 0;
+                        $akr = 0;
+                        $bi = 0;
+                        $be = 0;
+                        foreach ($master_saw->result() as $row) { ?>
+
+                            <tr>
+                                <td><input type="number" class="form-control" name="fas<?= $f++ ?>" value="<?= $row->fasilitas ?>" readonly> </td>
+                                <td><input type="number" class="form-control" name="akr<?= $akr++ ?>" value="<?= $row->akreditasi ?>" readonly> </td>
+                                <td><input type="number" class="form-control" name="bia<?= $bi++; ?>" value="<?= $row->biaya ?>" readonly> </td>
+                                <td><input type="number" class="form-control" name="bea<?= $be++; ?>" value="<?= $row->beasiswa ?>" readonly> </td>
+                            </tr>
+
+                        <?php  } ?>
+                    </tbody>
                 </table>
+                <!-- End Master SAW -->
 
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
@@ -44,14 +54,14 @@
                     <tbody>
                         <?php
                         $i = 0;
-                        $a = 0;
+                        $j = 0;
                         $s = 1;
                         foreach ($alt->result() as $row) { ?>
                             <tr>
                                 <td><?= $s++; ?></td>
                                 <td><?= $row->nama_alt ?></td>
                                 <td>
-                                    <input type="number" readonly name="jarak<?= $i ?>" id="jarak<?= $a++ ?>" class="form-control">
+                                    <input type="number" readonly name="jarak<?= $j++ ?>" id="jarak<?= $i++ ?>" class="form-control">
                                 </td>
                             </tr>
                         <?php }
