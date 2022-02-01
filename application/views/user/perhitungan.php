@@ -32,10 +32,10 @@
                         foreach ($master_saw->result() as $row) { ?>
 
                             <tr>
-                                <td><input type="number" class="form-control" name="fas<?= $f++ ?>" value="<?= $row->fasilitas ?>" readonly> </td>
-                                <td><input type="number" class="form-control" name="akr<?= $akr++ ?>" value="<?= $row->akreditasi ?>" readonly> </td>
-                                <td><input type="number" class="form-control" name="bia<?= $bi++; ?>" value="<?= $row->biaya ?>" readonly> </td>
-                                <td><input type="number" class="form-control" name="bea<?= $be++; ?>" value="<?= $row->beasiswa ?>" readonly> </td>
+                                <td><input type="hidden" class="form-control" name="fas<?= $f++ ?>" value="<?= $row->fasilitas ?>" readonly> </td>
+                                <td><input type="hidden" class="form-control" name="akr<?= $akr++ ?>" value="<?= $row->akreditasi ?>" readonly> </td>
+                                <td><input type="hidden" class="form-control" name="bia<?= $bi++; ?>" value="<?= $row->biaya ?>" readonly> </td>
+                                <td><input type="hidden" class="form-control" name="bea<?= $be++; ?>" value="<?= $row->beasiswa ?>" readonly> </td>
                             </tr>
 
                         <?php  } ?>
