@@ -90,4 +90,22 @@ class Login extends CI_Controller
         $this->session->sess_destroy();
         redirect(base_url('Login'));
     }
+
+    public function register()
+    {
+        $this->load->view('register');
+    }
+
+    public function tambah_user()
+    {
+        $table = 'tbl_user';
+        $data = array(
+            'nama_user' => $this->input->post('nama_user'),
+            'username' => $this->input->post('username'),
+            'password' => md5($this->input->post('username')),
+            'level' => 2
+        );
+        $this->m_data->simpan_data($table, $data);
+        redirect('Login');
+    }
 }

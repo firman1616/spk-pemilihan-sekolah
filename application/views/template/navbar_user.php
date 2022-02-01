@@ -56,7 +56,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#l">
+                <a class="nav-link" href="<?= site_url('user/Laporan') ?>">
                     <i class="fas fa-fw fa-calculator"></i>
                     <span>Report Hasil</span></a>
             </li>

@@ -66,6 +66,7 @@
     <input type="hidden" name="ref6" id="ref6" value="<?= $ref6 ?>">
 
     <input type="hidden" name="user" id="user" value="<?= $user_id ?>">
+    <input type="hidden" name="desa" id="desa" value="<?= $desa ?>">
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Hasil Perhitungan</h1>
 

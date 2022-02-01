@@ -239,6 +239,8 @@ class Perhitungan extends CI_Controller
 
             'dis1' => $jar,
 
+            'desa' => $_POST['desa']
+
 
         ];
         $this->load->view('template/conten_user', $data);
@@ -292,7 +294,8 @@ class Perhitungan extends CI_Controller
         );
 
         $data[] = array(
-            'fk_user'       => $this->input->post('user'),
+            'fk_desa' => $this->input->post('desa'),
+            'fk_user' => $this->input->post('user'),
             'jarak_1' => $this->input->post('jar0'),
             'jarak_2' => $this->input->post('jar1'),
             'jarak_3' => $this->input->post('jar2'),

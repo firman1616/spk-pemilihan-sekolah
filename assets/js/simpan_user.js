@@ -58,11 +58,13 @@ $(document).ready(function ($) {
     var jar5 = $('#jar5').val();
 
     var user = $('#user').val();
+    var desa = $('#desa').val();
      if (rata1) {
          $.ajax({
              url: BASE_URL + "user/Perhitungan/simpan_data",
              method: "POST",
              data: { 
+                 desa: desa,
                  user: user,
                  rata1: rata1, 
                  rata2: rata2, 

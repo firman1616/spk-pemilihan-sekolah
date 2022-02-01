@@ -69,6 +69,41 @@ class M_data extends CI_Model
     return $this->db->query("SELECT * FROM tbl_bobot_kriteria WHERE fk_user = $user ORDER BY id_bobot__kriteria DESC LIMIT 1 ");
   }
 
+  public function kriteria($user)
+  {
+    return $this->db->query("SELECT * FROM tbl_kriteria WHERE fk_user = $user ORDER BY id_kriteria DESC LIMIT 1");
+  }
+
+  public function saw($user)
+  {
+    return $this->db->query("SELECT
+    id_alternatif_saw,
+    jarak_1,
+    jarak_2,
+    jarak_3,
+    jarak_4,
+    jarak_5,
+    jarak_6,
+    ref1,
+    ref2,
+    ref3,
+    ref4,
+    ref5,
+    ref6,
+    fk_user,
+    fk_desa,
+    a.id_master_desa,
+    a.nama_desa
+  FROM
+    tbl_alt_saw2 
+  LEFT JOIN tbl_master_desa as a ON fk_desa = a.id_master_desa
+    WHERE
+    fk_user = $user
+  ORDER BY
+    id_alternatif_saw DESC 
+    LIMIT 1 ");
+  }
+
   public function jarak_sekolah($desa, $alt, $jar)
   {
     $this->db->trans_start();
