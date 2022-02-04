@@ -78,6 +78,20 @@ if (isset($footer_js)) {
 <?php }
 } ?>
 
+<script>
+    $(document).ready(function() {
+        var user = $("#user_id option:selected").val();
+
+        $("#cari").click(function() {
+            if (user.length < 0) {
+                $("#b").hide();
+            } else {
+                $("#b").show();
+            }
+        });
+    });
+</script>
+
 
 </body>
 

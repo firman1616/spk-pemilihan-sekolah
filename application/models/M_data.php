@@ -66,12 +66,13 @@ class M_data extends CI_Model
 
   public function bobot_kriteria($user)
   {
-    return $this->db->query("SELECT * FROM tbl_bobot_kriteria WHERE fk_user = $user ORDER BY id_bobot__kriteria DESC LIMIT 1 ");
+    return $this->db->query("SELECT * FROM tbl_bobot_kriteria WHERE fk_user = '$user' ORDER BY id_bobot__kriteria DESC LIMIT 1");
+    //  
   }
 
   public function kriteria($user)
   {
-    return $this->db->query("SELECT * FROM tbl_kriteria WHERE fk_user = $user ORDER BY id_kriteria DESC LIMIT 1");
+    return $this->db->query("SELECT * FROM tbl_kriteria WHERE fk_user = '$user' ORDER BY id_kriteria DESC LIMIT 1");
   }
 
   public function saw($user)
@@ -98,7 +99,7 @@ class M_data extends CI_Model
     tbl_alt_saw2 
   LEFT JOIN tbl_master_desa as a ON fk_desa = a.id_master_desa
     WHERE
-    fk_user = $user
+    fk_user = '$user'
   ORDER BY
     id_alternatif_saw DESC 
     LIMIT 1 ");
@@ -173,5 +174,10 @@ class M_data extends CI_Model
     JOIN tbl_master_alternatif AS a ON a.id_master_alt = b.fk_alternatif 
   WHERE
     id_master_desa = $id");
+  }
+
+  public function tampil_data_user($user)
+  {
+    return $this->db->query("SELECT nama_user FROM `tbl_user` WHERE id_user = '$user'");
   }
 }
