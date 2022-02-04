@@ -180,4 +180,9 @@ class M_data extends CI_Model
   {
     return $this->db->query("SELECT nama_user FROM `tbl_user` WHERE id_user = '$user'");
   }
+
+  public function total_surveyor()
+  {
+    return $this->db->query("SELECT * FROM tbl_user WHERE level = '2'")->num_rows();
+  }
 }

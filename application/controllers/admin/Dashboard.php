@@ -21,6 +21,7 @@ class Dashboard extends CI_Controller
             'name'  => $this->session->userdata('nama'),
             'title' => 'Dashboard',
             'conten' => 'conten/dashboard',
+            'total' => $this->m_data->total_surveyor()
         ];
         $this->load->view('template/conten', $data);
     }
