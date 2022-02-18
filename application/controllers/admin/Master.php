@@ -171,4 +171,26 @@ class Master extends CI_Controller
         $this->m_data->update_data($table, $data, $where);
         redirect('admin/Master/master_saw');
     }
+
+    public function master_bobot()
+    {
+        $data = [
+            'name'  => $this->session->userdata('nama'),
+            'bobot_kriteria' => $this->m_data->get_data('tbl_master_bobot'),
+            'title' => 'Master bobot',
+            'conten' => 'conten/master_bobot'
+        ];
+        $this->load->view('template/conten', $data);
+    }
+
+    public function update_bobot($id)
+    {
+        $table = 'tbl_master_bobot';
+        $data = array(
+            'keterangan_bobot' => $this->input->post('keterangan_bobot')
+        );
+        $where = array('id_bobot' => $id);
+        $this->m_data->update_data($table, $data, $where);
+        redirect('admin/Master/master_bobot');
+    }
 }

@@ -79,6 +79,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Detail:</h6>
+                        <a class="collapse-item" href="<?= site_url('admin/Master/master_bobot') ?>">Bobot</a>
                         <a class="collapse-item" href="<?= site_url('admin/Master') ?>">Kategori</a>
                         <a class="collapse-item" href="<?= site_url('admin/Master/alternatif') ?>">Alternatif</a>
                         <a class="collapse-item" href="<?= site_url('admin/Master/desa') ?>">Desa</a>
